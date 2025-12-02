@@ -18,6 +18,7 @@ Through rigorous **Exploratory Data Analysis (EDA)**, we extracted key insights 
 ![Target Distribution](https://github.com/zava2000/Loan-Default-Risk-Insights/blob/main/Images/Image%205.png)
 
 *The dataset shows a class imbalance (80% Paid vs 20% Default), which was addressed using stratified sampling and class-weighting techniques.*
+
 ---
 
 ## 💡 Key Risk Insights
