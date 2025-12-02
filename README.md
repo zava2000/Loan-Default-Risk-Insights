@@ -12,18 +12,18 @@
 ## 📋 Executive Summary
 In the lending industry, minimizing Non-Performing Loans (NPLs) is the primary lever for profitability. The objective of this project is to analyze a dataset of 20,000 loan records to identify the key behavioral and financial indicators that distinguish reliable borrowers from high-risk applicants.
 
-The portfolio currently exhibits a **20% default rate**, representing significant capital exposure. By leveraging **Exploratory Data Analysis (EDA)** and **Machine Learning (Random Forest)**, we developed a scoring mechanism that achieves an **Accuracy of ~90%** and an **ROC-AUC of 0.88**, providing a robust tool for automated loan underwriting.
+Through rigorous **Exploratory Data Analysis (EDA)**, we extracted key insights that significantly enhance borrower profiling, allowing for a more granular understanding of risk beyond simple credit scores. Furthermore, the predictive model (Random Forest) developed on this foundation achieved an **Accuracy of ~90%** and an **ROC-AUC of 0.88**, providing a robust tool for automated loan underwriting.
 
 **Target Variable Distribution:**
-![Target Distribution](Images/Image 5.png)
-*The dataset shows a class imbalance (80% Paid vs 20% Default), which was addressed using stratified sampling and class-weighting techniques.*
+![Target Distribution](https://github.com/zava2000/Loan-Default-Risk-Insights/blob/main/Images/Image%205.png)
 
+*The dataset shows a class imbalance (80% Paid vs 20% Default), which was addressed using stratified sampling and class-weighting techniques.*
 ---
 
 ## 💡 Key Risk Insights
 Through correlation analysis and segmentation, we isolated the primary drivers of default. The "Heatmap of Correlation" below highlights the strongest predictors:
 
-![Correlation Heatmap](Images/Image 7.png)
+![Correlation Heatmap](https://github.com/zava2000/Loan-Default-Risk-Insights/blob/main/Images/Feature%20Correlation.png)
 
 **Strategic Takeaways:**
 1.  **Employment is the "Knockout" Factor:** Unemployment (`employment_status_Unemployed`) has a massive negative correlation (**-0.53**) with repayment. This is the single strongest predictor of default, suggesting that income verification is the most critical step in the approval funnel.
@@ -37,10 +37,9 @@ Through correlation analysis and segmentation, we isolated the primary drivers o
 
 ### 1. Exploratory Data Analysis (EDA)
 We visualized the borrower profile to understand the portfolio composition.
-* **Demographics:** The average borrower is 48 years old, with a diverse educational background.
-![Demographics](Images/Image 1.png)
-* **Financial Health:** Investigated the relationship between Annual Income and DTI.
-![Financials](Images/Image 2.png)
+* **Key Drivers:** Investigated relationships between the main categories against our target variable.
+  
+![Financials](https://github.com/zava2000/Loan-Default-Risk-Insights/blob/main/Images/Image%206.png)
 
 ### 2. Feature Engineering
 To prepare the data for modeling, we transformed qualitative risk factors into quantitative features:
@@ -61,15 +60,10 @@ The model is tuned to be **High Precision (95%)** for identifying defaults, maki
 | **ROC-AUC** | **0.88** | Excellent ability to rank borrowers from "Safe" to "Risky". |
 | **Precision (Default)** | **0.95** | When the model predicts a default, it is **95% correct**. This ensures we don't reject good customers unnecessarily. |
 
-### Borrower Segmentation Strategy
-Based on the model outputs, we propose a tiered approval process:
-
-1.  **The "Prime" Borrower:** Employed, Credit Score > 700, DTI < 20%.
-    * *Action:* **Auto-Approval** with competitive interest rates.
-2.  **The "Subprime" Risk:** Unemployed or Student, Credit Score < 650.
-    * *Action:* **Auto-Rejection** or requirement of a co-signer/collateral.
-3.  **The "Gray Zone":** High Income but High DTI.
-    * *Action:* **Manual Underwriting** required to verify disposable income.
+### Borrower Profiling & Segmentation
+Two distinct profiles emerged from the analysis:
+* **The "Prime" Borrower:** Employed, Credit Score > 700, DTI < 20%. *Strategy:* Auto-approval with competitive interest rates to maximize acquisition.
+* **The "Subprime" Risk:** Unemployed or Student, Credit Score < 650, Requesting Debt Consolidation. *Strategy:* Auto-rejection or requirement of a co-signer.
 
 ---
 
