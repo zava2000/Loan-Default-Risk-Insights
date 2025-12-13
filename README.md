@@ -1,4 +1,4 @@
-# 💰 Loan-Default-Risk-Analysis
+# 💰 Credit risk assessment model
 
 ### A Data-Driven Framework for Credit Risk Mitigation
 
